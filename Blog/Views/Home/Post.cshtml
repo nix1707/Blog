@@ -1,0 +1,61 @@
+﻿@model Post;
+
+@{
+
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.Description;
+    ViewBag.Keywords = $"{Model.Tags?.Replace(",", " ")} {Model.Category}";
+}
+
+<div class="container">
+    <div class="post no-shadow">
+        @if (string.IsNullOrWhiteSpace(Model.Image) == false)
+        {
+            var imagePath = $"/Image/{Model.Image}";
+            <img src=@imagePath />
+            <span class="title">@Model.Title</span>
+        }
+    </div>
+    <div class="post-body">
+        @Html.Raw(@Model.Body)
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="comment-section">
+            <h1>Comments</h1>
+
+            @{
+                await Html.RenderPartialAsync("_MainComment", new CommentViewModel { MainCommentId = 0, PostId = Model.Id });
+            }
+            @foreach (var c in Model.MainComments)
+            {
+                <div class="comment">
+                    @c.Message
+                    <div class="comment-date">@c.Created.ToString("dd/MM/yy")</div>
+                </div>
+
+
+                <div style="margin-left: 20px; margin-bottom: 10px;">
+                    <h4>Replies</h4>
+                    @{
+                        await Html.RenderPartialAsync("_MainComment", new CommentViewModel { MainCommentId = c.Id, PostId = Model.Id });
+                    }
+                    @foreach (var sc in c.SubComments)
+                    {
+                        <div style="margin-left: 20px;" class="comment">
+                            @sc.Message
+                            <div class="comment-date">@sc.Created.ToString("dd/MM/yy")</div>
+                        </div>
+                    }
+                </div>
+
+            }
+        </div>
+    }
+    else
+    {
+        <div>
+            <a asp-action="Login" asp-controller="Auth">Sign In</a> to comment this awesome blog!
+        </div>
+    }
+</div>

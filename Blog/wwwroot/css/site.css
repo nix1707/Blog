@@ -1,0 +1,227 @@
+﻿body {
+    margin: 0;
+    background-color: #CBD2A4;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    background-color: #54473F;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+    nav a {
+        display: inline-block;
+        height: 100%;
+        padding: 15px;
+    }
+
+.main-img {
+    position: relative;
+    height: 60vh;
+    background-image: url('../content/static/pexels-minan1398-1448709.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search {
+    color: black;
+    background-color: #E9EED9;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.submit-btn {
+    background-color: #9A7E6F;
+    color: whitesmoke;
+    border-radius: 30px;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .submit-btn {
+        display: inline-block;
+    }
+}
+
+.search::placeholder {
+    color: #939185;
+}
+
+.main-img .title {
+    color: white;
+    font-size: 40px;
+    text-shadow: 0 0 8px black;
+    margin-bottom: 1rem;
+}
+
+.post .title {
+    position: absolute;
+    color: #E9EED9;
+    font-size: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    text-shadow: 0 0 8px black;
+}
+
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+
+.post {
+    margin: 5px;
+    position: relative;
+    height: 400px;
+    display: flex;
+    background: black;
+    box-shadow: 0 0 5px 0 black;
+}
+
+    .post img {
+        width: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+    }
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.post-body {
+    margin: -5px 5px 0;
+    background-color: white;
+    padding: 20px 5px;
+    background-color: white;
+    border-bottom: 5px;
+    font-size: 16px;
+}
+
+.pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem;
+}
+
+    .pages a {
+        background-color: #6F4E37;
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #eee;
+        border-radius: 30px;
+        margin: 0 0.25rem;
+    }
+
+        .pages a.active {
+            background-color: #A67B5B;
+        }
+
+        .pages a:hover {
+            background-color: #AF8F6F;
+        }
+
+.three-dots {
+    line-height: 1;
+    font-size: 24px;
+}
+
+.sign-in-form {
+    padding: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+    .sign-in-form div {
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .sign-in-form a {
+        color: #54473F;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .sign-in-form div label {
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: #54473F;
+    }
+
+    .sign-in-form input {
+        min-width: 250px;
+        padding: 10px;
+        background-color: #E9EED9;
+        font-size: 15px;
+        border: none;
+    }
+
+        .sign-in-form input[type=submit] {
+            background-color: #9A7E6F;
+            padding: 10px;
+            color: white;
+        }
+
+.comment-section{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5px;
+}
+
+.comment {
+    background-color: #EEEEEE;
+    color: black;
+    width: fit-content;
+    white-space: nowrap;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.comment-date {
+    color: #3C5B6F;
+    font-size: 12px;
+    font-weight: bold;
+}
